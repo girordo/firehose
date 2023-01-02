@@ -1,0 +1,8 @@
+PATCH http://localhost:4000/api/quotations/1 HTTP/1.1
+content-type: application/json
+
+{ 
+  "quotation": {
+    "author": "Gandalf"
+  }
+}
