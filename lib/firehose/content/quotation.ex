@@ -14,5 +14,6 @@ defmodule Firehose.Content.Quotation do
     quotation
     |> cast(attrs, [:text, :author])
     |> validate_required([:text, :author])
+    |> unique_constraint([:text, :author])
   end
 end

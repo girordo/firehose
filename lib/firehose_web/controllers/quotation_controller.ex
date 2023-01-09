@@ -15,7 +15,7 @@ defmodule FirehoseWeb.QuotationController do
     with {:ok, %Quotation{} = quotation} <- Content.create_quotation(quotation_params) do
       conn
       |> put_status(:created)
-      # |> put_resp_header("location", Routes.quotation_path(conn, :show, quotation))
+      |> put_resp_header("location", Routes.quotation_path(conn, :show, quotation))
       |> render("show.json", quotation: quotation)
     end
   end
