@@ -27,6 +27,8 @@ defmodule FirehoseWeb.Router do
     get "/roll", RollController, :index
     get "/roll/:num_dice", RollController, :show
 
+    resources "/quotations", QuotationController, except: [:new, :edit]
+
     scope "/v1", Api.V1, as: :v1 do
       resources "/quotations", QuotationController, except: [:new, :edit]
     end
