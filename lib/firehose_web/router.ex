@@ -21,12 +21,15 @@ defmodule FirehoseWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  scope "/api", FirehoseWeb do
+  scope "/api", FirehoseWeb, as: :api do
     pipe_through :api
 
     get "/roll", RollController, :index
     get "/roll/:num_dice", RollController, :show
-    resources "/quotations", QuotationController, except: [:new, :edit]
+
+    scope "/v1", Api.V1, as: :v1 do
+      resources "/quotations", QuotationController, except: [:new, :edit]
+    end
   end
 
   # Enables LiveDashboard only for development
